@@ -14,7 +14,6 @@ WITH skills_demand AS (
     WHERE
         job_title_short = 'Data Analyst'
         AND salary_year_avg IS NOT NULL
-        AND job_work_from_home = True
     GROUP BY
         skills_dim.skill_id,
         skills_dim.skills
@@ -30,7 +29,6 @@ average_salary AS (
         ON skills_job_dim.skill_id = skills_dim.skill_id
     WHERE
         job_title_short = 'Data Analyst'
-        AND job_location = 'Poland'
         AND salary_year_avg IS NOT NULL
     GROUP BY
         skills_job_dim.skill_id
@@ -49,3 +47,4 @@ WHERE
 ORDER BY
     demand_count DESC,
     avg_salary DESC
+LIMIT 10;

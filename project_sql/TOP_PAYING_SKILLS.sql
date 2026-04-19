@@ -12,9 +12,10 @@ INNER JOIN skills_dim on skills_job_dim.skill_id = skills_dim.skill_id
 WHERE
     job_title_short = 'Data Analyst' AND
     salary_year_avg IS NOT NULL
+    
 
 GROUP BY
     skills
 ORDER BY
     avg_salary DESC
-limit 50
+limit 25
